@@ -1,65 +1,128 @@
-
-<html>
-<head>
-  <title>Contact - Prizmarine</title>
-  <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/png" href="/assets/logo-icon.png" />
-  <meta name="viewport" content="width=device-width">
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
-<body>
-  <header>
-    <a href="/"><img src="/assets/logo-text.png" id="pepsearch-logo" height="70px" width="375px"></a>
-  </header>
-  <div class="container">
-    <h1>Contact <b><span class="p">Priz</span>marine</b></h1>
-    <h3>Contact info</h3>
-    <p>Bro who is tryna contact us 😭
-    </p>
-	  <br>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="container"><h6 class="note">Pepsearch is maintained by xy7rux, unium, ClaytonTDM, Jacobi090, and CallenDV.</h6></div>
-  <style>
-  header {
-	background-color: #2b302f;
-	width: 86%;
-	height: 10%;
-	margin:  2px auto 4px; auto;
-	border: 2px black solid;
-	border-radius: 2px;
-	text-align: center;
-  }
-  .container {
-	background-color: #ababab;
-	margin: auto;
-	width: 99%;
-	border: 2px #000000 solid;
-	border-radius: 2px;
-	text-align: center;
-  }
-  * { font-family: Arial; }
-  .note { margin: 2px auto 1px auto; }
-  .p { color: red; }
-  .e { color: white; }
-  .other-p { color: blue; }
-  .other-title { color: white; }
-  </style>
-</body>
-
-</html>
+<!DOCTYPE html> 
+ <html lang="en-us"> 
+    <head> 
+       <meta charset="utf-8"> 
+       <meta name="viewport" content="width=device-width"> 
+       <meta property="og:image" content="assets/logo-icon.png"> 
+       <meta property="og:image:width" content="100"> 
+       <meta property="og:image:height" content="100"> 
+       <meta name="theme-color" content="#004B93"> 
+       <title>Prizmarine - Contact Us</title> 
+       <link rel="shortcut icon" type="image/png" href="assets/logo-icon.png" /> 
+       <link href="style.css" rel="stylesheet" type="text/css" /> 
+       <script src="https://cdn.tailwindcss.com"></script> 
+       <meta name="title" content="Prizmarine - Simple Search Engine"> 
+       <meta name="description" content="Prizmarine gives an efficient search results and a streamlined user experience with good design, too."> 
+       <meta name="og:title" content="Prizmarine - Simple Search Engine"> 
+       <meta name="og:description" content="Prizmarine gives an efficient search results and a streamlined user experience with good design, too."> 
+       <meta name="keywords" content="google, gce, search engine, search, bing, pepsearch, pepsi, pep, search, search engine, engine, popsearch, pepsearch, priz, marine, prizmarine"> 
+       <meta name="robots" content="index, follow"> 
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+       <meta name="language" content="English"> 
+       <meta name="revisit-after" content="1 days"> 
+    </head> 
+    <body> 
+       <center> 
+          <img src="assets/logo-text.png" class="peps-logo" height="100" width="800" alt="pepsearch logo"> 
+          <form class="md:px-64" method="get" action="search/"> 
+             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label> 
+             <div class="relative"> 
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"> 
+                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"> 
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/> 
+                   </svg> 
+                </div> 
+                <h3>Where do you contact us?</h3>
+               <p>We can be contacted at <a href="mailto:prizmiteaccount@zohomail.com">this email address</a>.</p>
+             </div>
+          </form> 
+            <br> 
+            <center> 
+            <h3>Did you know?</h3> 
+          <!-- // Funfact here. --> 
+            <div id="phrase"></div> 
+            </center> 
+          <div class="pt-5"> 
+             <a href="./about" class="hover:text-gray-300 transition duration-150 pr-3">About</a> 
+             <a href="./privacy" class="hover:text-gray-300 transition duration-150 pr-3">Privacy Policy</a> 
+             <a href="https://pepsearch.xyz" class="hover:text-gray-300 transition duration-150">Home</a> 
+          </div> 
+       </center> 
+       <style> 
+          .peps-logo{padding-top:64px;padding-bottom:64px;max-width:100%;height:auto;} 
+          @media screen and (max-width:768px){.peps-logo{max-width:100%;}} 
+          body{background-color:#40444b;color:white;} 
+       </style> 
+   <!-- // Css code for hiding all the funfact list. (!!! Dont worry!!! The js code will take a funfact from the hided list and show only 1 funfact.) --> 
+       <style> 
+        #phrases { 
+        display: none; 
+        } 
+      </style> 
+  
+    <!-- // Here is the js code for funfact. every refresh, a new funfact is here. --> 
+  
+       <script> 
+        function getRandomPhrase() { 
+  
+     var phrases = document.getElementById("phrases").getElementsByTagName("li"); 
+  
+     var randomIndex = Math.floor(Math.random() * phrases.length); 
+     var randomPhrase = phrases[randomIndex]; 
+  
+     document.getElementById("phrase").innerHTML = randomPhrase.innerHTML; 
+   } 
+  
+   window.onload = getRandomPhrase; 
+       </script> 
+  
+ <!-- // I know this is stupid, but this is temporary during the time im setting up the api for funfact. --> 
+  
+ <center> 
+ <ul id="phrases"> 
+   <li><h4 style="font-family: 'LT Binary Neue Round', sans-serif;"><font color="white">The name Google was actually a misspelling of the number "googol".</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">North Korea already bans citizens from laughing, drinking and shopping for 11 days.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">A person attracted to vehicles, bicycles, trucks, robots, etc. is a mecanophile.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Everyone has a little autism.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Vatican City is a country.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;;"<font color="white">Windows 8 is the most failed operating system ever made by Microsoft.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The calculator is more powerful than the first computer.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Adolf Hitler had only 1 testicle.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The most difficult programming language in the world is Malbolge.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">It is 100% possible to compare the human brain to butter.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">It’s illegal to feed pigeons on the sidewalks and streets in San Francisco.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">One astronaut was allergic to the moon.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The official bird of Redondo Beach, California, is the Goodyear Blimp.</h4></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">You can get your eyeballs tattooed.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">"Q" is the only letter that doesn't appear in any U.S. state name.</h4></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Neil Armstrong once threatened to sue his barber for selling his hair to someone.</h4></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">"Strengths" is the longest word in the English language with one vowel.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Liechtenstein has only 1 jail.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The filling in Kit Kats is made from Kit Kats that got damaged during production.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">It only takes six minutes for alcohol to affect your brain.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Professional cheesemakers are studying if music can change the taste of cheese, which it might be able to.</h4></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Only 18 out of 1 million Lego pieces are defective.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The Twitter bird has a name.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Extreme ironing is a real sport that people still compete in today.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">There is a species of jellyfish that is practically immortal.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Einstein's brain was stolen after he passed away.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Shakespeare invented more than 1,700 words.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">McDonald's once created bubblegum-flavored broccoli for employees as a snack.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Meghan Markle and Prince Harry are incredibly distant cousins.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">40 percent of human jobs could be replaced by AI in the near future.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Your body loses up to 8 percent of water on a flight.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Trees can communicate via mycorrhizal networks.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">People rarely used to smile in photos.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The first documentary was staged.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The longest breath held underwater is 24 minutes, 3 seconds, but it was rigged.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">There’s a 50,000-word novel without the letter “E” in it.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Before 1920, some people used to send children in the mail.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">You can survive in space without a suit, for about 1-2 minutes.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The computer virus Stuxnet has been able to cause physical damage to computers and servers.</h2></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">Viruses are not alive.</h1></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The reunification of Germany on October 3, 1990, marked the official end of the Cold War and the beginning of a new era of European history.</h1></li> 
+   <li><h4 style="font-family:'LT Binary Neue Round', sans-serif;"><font color="white">The Facebook logo is believed to be based off a city's flag in the movie Shrek.</h1></li> 
+  
+ </ul> 
+    </body> 
+ </html>
