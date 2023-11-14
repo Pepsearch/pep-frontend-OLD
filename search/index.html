@@ -28,13 +28,121 @@
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                   </svg>
                </div>
-               <input type="search" name="q" maxlength="150" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-30 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search through the internet with Prizmarine..." required>
-               <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+               <input type="search" name="query" class="form-control" maxlength="150" id="default-search" id="query" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-30 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search through the internet with Prizmarine..." required>
+               <button type="submit@  id="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
             </div>
          </form>
       </center>
-      <script async src="https://cse.google.com/cse.js?cx=22c712891e5164fd6"></script>
-      <div class="gcse-searchresults-only"></div>
+   <div id="results">
+    </div>
+
+    <script>
+        const form = document.getElementById('search-form');
+        const queryInput = document.getElementById('query');
+        const resultsDiv = document.getElementById('results');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const query = queryInput.value.trim();
+            
+            // Replace '<YOUR_API_KEY>' with your actual API key
+            const apiKey = 'BSAjuW2WxpQQrshTG2MdZ_SMOGAPKfx';
+            
+            // Make a request to the Brave Search API
+            const badApiUrl = `https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}`;
+            // const originalUrl = 'https://api.search.brave.com/res/v1/web/search?q=cool%20rocks';
+            const apiUrl = 'https://corsproxy.io/?' + encodeURIComponent(badApiUrl);
+            const headers = {
+                'Accept': 'application/json',
+                'Accept-Encoding': 'gzip',
+                'X-Subscription-Token': apiKey
+            };
+
+            try {
+                const response = await fetch(apiUrl, { headers });
+                const data = await response.json();
+                displayResults(data);
+                boldText(query)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                resultsDiv.innerHTML = '<p>An error occurred while fetching results.</p>';
+            }
+        });
+
+        function displayResults(data) {
+    // Clear previous results
+    resultsDiv.innerHTML = '';
+
+    if (data.web && data.web.results && data.web.results.length > 0) {
+        data.web.results.forEach((result) => {
+            const resultDiv = document.createElement('div');
+            resultDiv.classList.add('result-item');
+            resultDiv.innerHTML = `
+                <code style="color: #eee; font-size: 16px;"><img src="${result.meta_url.favicon}" width="16" style="margin-right: 5px; margin-bottom: -2px;">${result.meta_url.scheme}://${result.meta_url.hostname} ${result.meta_url.path}</code>
+                <p style="margin-bottom: 0; margin-top: 4px;"><a href="${result.url}" target="_blank" style="color: #8ab4f8;">${result.title}</a></p>
+                <p style="margin-top: 5px; color: #ccc;">${result.description}</p>
+            `;
+            resultsDiv.appendChild(resultDiv);
+        });
+    } else {
+        resultsDiv.innerHTML = '<p>No results found.</p>';
+    }
+}
+
+function boldText(queryString) {
+// Get all <a> elements within the <div id="results">
+let links = document.querySelectorAll("#results .result-item p a");
+
+// Function to escape special characters in a string for RegExp
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Loop through each <a> element
+links.forEach(function(link) {
+  // Get the text content of the link
+  let linkText = link.textContent;
+
+  // Loop through each word in the query
+  queryString.split(" ").forEach(function(keyword) {
+    // Create a regular expression to match the whole word, case-insensitive
+    let regex = new RegExp("\\b" + escapeRegExp(keyword) + "\\b", "gi");
+
+    // Replace all occurrences of the matched keyword with the <strong> element
+    linkText = linkText.replace(regex, function(match) {
+      return "<strong>" + match + "</strong>";
+    });
+  });
+
+  // Update the link's HTML with the bolded text
+  link.innerHTML = linkText;
+});
+}
+      function getUrlParameter(sParam) {
+          var sPageURL = window.location.search.substring(1);
+          var sURLVariables = sPageURL.split('&');
+          for (var i = 0; i < sURLVariables.length; i++)
+          {
+          var sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] == sParam)
+          {
+          return sParameterName[1];
+      }}}
+
+      // console.log(getUrlParameter('q')) // This will print the search query
+      if (getUrlParameter('q') !== undefined && getUrlParameter('q') !== '') {
+      document.title = 'Brave Search - ' + getUrlParameter('q')
+      document.getElementById('query').value = getUrlParameter('q')
+      document.getElementById('submit').click()
+      } else {
+        
+      }
+
+      document.getElementById('submit').addEventListener('click', function() {
+        window.history.pushState("", "Resulti", `/?q=${document.getElementById('query').value}`);
+        // console.log('WOOOPS....something happened')
+      })
+        </script> <!-- now all that needs to be done is styling the site to be resulti -->
       <style>
         .peps-logo{padding-top:64px;padding-bottom:64px;max-width:100%;height:auto;}
         @media screen and (max-width:768px){.peps-logo{max-width:100%;}}
@@ -43,8 +151,5 @@
      </style>
       <script src="/assets/bangs.js"></script>
      <script src="/assets/searchpage.js"></script>
-      <script>
-         (function(){adid=['adBlock','tadsb'];g=function(x){css=x.createElement('style');css.type='text/css';css.innerHTML='.gsc-adBlock,#adBlock,#tadsb,iframe[src*="doubleclick.net"]{display:none;}';x.body.appendChild(css);for(i=0;i<adid.length;i++){a=x.getElementById(adid[i]);if(a)a.parentElement.removeChild(a)}};f=function(s){g(s);ifrs=s.getElementsByTagName('iframe');if(ifrs){for(i=0;i<ifrs.length;i++){d=ifrs[i].contentWindow.document;f(d)}}};f(document)})();
-      </script>  
    </body>
 </html>
