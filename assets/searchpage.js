@@ -1,37 +1,38 @@
-const form = document.getElementById('search-form');
-const queryInput = document.getElementById('query');
-const resultsDiv = document.getElementById('results');
+const webSearchForm = document.getElementById('search-form');
+const webSearchQueryInput = document.getElementById('query');
+const webSearchResultsDiv = document.getElementById('results');
 
-form.addEventListener('submit', async (e) => {
+webSearchForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const query = queryInput.value.trim();
+    const query = webSearchQueryInput.value.trim();
     const apiUrl = `https://pepsearch.replit.app/search?q=${encodeURIComponent(query)}`;
 
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        displayResults(data);
+        displayWebResults(data);
         boldText(query);
     } catch (error) {
         console.error('Error fetching data:', error);
-        resultsDiv.innerHTML = '<p>An error occurred while fetching results.</p>';
+        webSearchResultsDiv.innerHTML = '<p>An error occurred while fetching results.</p>';
     }
 });
 
-function displayResults(data) {
+
+function displayWebResults(data) {
     resultsDiv.innerHTML = '';
 
     if (data.web && data.web.results && data.web.results.length > 0) {
         data.web.results.forEach((result) => {
-            const resultDiv = document.createElement('div');
-            resultDiv.classList.add('result-item');
-            resultDiv.innerHTML = `
+            const webSearchResultsDiv = document.createElement('div');
+            webSearchResultsDiv.classList.add('result-item');
+            webSearchResultsDiv.innerHTML = `
                 <code style="color: #eee; font-size: 16px;"><img src="${result.meta_url.favicon}" width="16" style="margin-right: 5px; margin-bottom: -2px;">${result.meta_url.scheme}://${result.meta_url.hostname} ${result.meta_url.path}</code>
                 <p style="margin-bottom: 0; margin-top: 4px;"><a href="${result.url}" target="_blank" style="color: #8ab4f8;">${result.title}</a></p>
                 <p style="margin-top: 5px; color: #ccc;">${result.description}</p>
                 <br>
             `;
-            resultsDiv.appendChild(resultDiv);
+            resultsDiv.appendChild(webSearchResultsDiv);
         });
     } else {
         resultsDiv.innerHTML = '<p>No results found.</p>';

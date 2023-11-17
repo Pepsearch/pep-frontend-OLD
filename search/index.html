@@ -44,7 +44,22 @@
 </div>
 
   <br>
+  <button id="imageSearchTab">Image Search</button>
+    <button id="webSearchTab">Web Search</button>
    <div id="results" class="max-w-prose"></div>
+
+    <script>
+        // Event listeners for tabs
+        document.getElementById('imageSearchTab').addEventListener('click', function () {
+            document.getElementById('results').classList.add('image-search');
+            document.getElementById('search-form').submit();
+        });
+
+        document.getElementById('webSearchTab').addEventListener('click', function () {
+            document.getElementById('results').classList.remove('image-search');
+            document.getElementById('search-form').submit();
+        });
+    </script>
 
     <!-- now all that needs to be done is styling the site to be resulti -->
      <script src="../assets/bangs.js"></script>

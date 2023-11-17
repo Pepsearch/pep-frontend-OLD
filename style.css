@@ -69,3 +69,33 @@ p {
 
 	}
 }
+/* Add a specific class for image search results */
+.image-search #results {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.image-search .result-item {
+    padding: 10px;
+    background-color: #374151;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-search img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-search a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.image-search a:hover {
+    text-decoration: underline;
+}
