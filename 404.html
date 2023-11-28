@@ -1,72 +1,56 @@
 
-<html>
+<!DOCTYPE html>
 <head>
-  <title>Contact - Pepsearch</title>
-  <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/png" href="/assets/logo-icon.png" />
-  <meta name="viewport" content="width=device-width">
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<title>Error 404</title>
+<script>
+    var style = 'color: red; -webkit-text-stroke: 5px red; font-size:50px;';console.log('%cStop!', style );style = 'font-size:18px;';console.log("%cThis is a browser feature intended for developers. Do not enter or paste code which you don't understand. It may allow attackers to steal your information or impersonate you.\nSee https://en.wikipedia.org/wiki/Self-XSS for more details.", style);
+  </script>
+<style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background: #40444b;
+      color: #eee;
+    }
+    h1{
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      padding-top: 20px;
+    }
+    p{
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      padding-top: 20px;
+    }
+    div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2%;
+    }
+    img{
+      max-width: 100%;
+      width: 40%;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <a href="/"><img src="/assets/logo-text.png" id="pepsearch-logo" height="70px" width="375px"></a>
-  </header>
-  <div class="container">
-    <h1>404 - <b><span class="p">P</span><span class="e">e</span><span class="other-p">p</span><span class="other-title">Search</span></b></h1>
-    <h3>This page does not exist</h3>
-    <p>Woah there pal, this website doesnt exist on our end!!!
-    </p>
-    <center>
-        <p>You will be redirected in:</p>
-        <div id="countdown"></div>
-      </center>
-	  <br>
-  </div>
-<center>
-  <img src="assets/Creation_sans_titre.gif" height="350" width="450" class="404" alt="404">
-</center> 
-<br>
-  <div class="container"><h6 class="note">Pepsearch is maintained by ARM, EnderPoint, and Jacobi090.</h6></div>
-  <style>
-  header {
-	background-color: #2b302f;
-	width: 86%;
-	height: 10%;
-	margin:  2px auto 4px auto;
-	border: 2px black solid;
-	border-radius: 2px;
-	text-align: center;
-  }
-  .container {
-	background-color: #ababab;
-	margin: auto;
-	width: 99%;
-	border: 2px #000000 solid;
-	border-radius: 2px;
-	text-align: center;
-  }
-  * { font-family: Arial; }
-  .note { margin: 2px auto 1px auto; }
-  .p { color: red; }
-  .e { color: white; }
-  .other-p { color: blue; }
-  .other-title { color: white; }
-  </style>
-  <script>
-    var timeleft = 10;
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer);
-    document.getElementById("countdown").innerHTML = "Redirecting...";
-    window.location.href = "/";
-  } else {
-    document.getElementById("countdown").innerHTML = timeleft + " seconds";
-  }
-  timeleft -= 1;
-}, 1000);
+<div>
+<img src="/logo-text.png" height="100" width="800" alt="pepsearch logo">
+</div>
+<h1>Error 404 - Page Not Found</h1>
+<p>Redirecting back in <span id="sec">5</span> seconds</p>
+<script>
+    var timeleft = 5;
+    setInterval(function(){
+    timeleft--;
+    document.getElementById("sec").textContent = timeleft;
+      if(timeleft<=0) {
+        history.back();
+      }
+    },1000);
   </script>
 </body>
-
-</html>
