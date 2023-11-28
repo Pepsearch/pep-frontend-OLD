@@ -1,2 +1,2 @@
-# Pepsearch
- Efficient search results and a streamlined user experience, with good design, too. Updates about every 2 months.
+# THIS REPO IS ARCHIVED
+This repo is no longer used. please revert to the [new repo](https://github.com/Pepsearch/NewPep)
